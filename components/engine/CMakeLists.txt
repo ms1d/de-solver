@@ -1,9 +1,7 @@
 cmake_minimum_required(VERSION 3.26)
 
 file(GLOB EN_SRC src/*.cpp)
-add_executable(engine 
-	${EN_SRC}
-)
+add_library(engine STATIC ${EN_SRC})
 
 include(FetchContent)
 
@@ -15,6 +13,5 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(thread-poollib)
 
-target_link_libraries(engine PRIVATE
-    thread-poollib
-)
+target_link_libraries(engine PUBLIC thread-poollib)
+target_include_directories(engine PUBLIC include)

@@ -11,4 +11,5 @@ qt_add_executable(client
 
 target_link_libraries(client PRIVATE
     Qt6::Widgets
+	engine
 )
